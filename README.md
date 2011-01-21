@@ -1,7 +1,7 @@
 
 # Stash
 
-A simple in-process key / document store for node.js. Ideal for less than 1000
+Experimental in-process key / document store for node.js. Ideal for less than 1000
 records.
 
 Stash was designed with small datasets in mind. It saves key value pairs to
