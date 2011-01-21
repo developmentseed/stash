@@ -13,6 +13,9 @@ common.compare(common.sandwiches, stash.get('snacks'));
 // Assert fruit.
 common.compare(common.fruit, stash.get('fruit'));
 
+// Assert non existing.
+common.compare(undefined, stash.get('lunch'));
+
 // Assert list of all entries.
 var docs = stash.list();
 common.compare(common.sandwiches, docs.snacks);
