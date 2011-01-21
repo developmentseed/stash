@@ -27,4 +27,4 @@ console.log(stash.list());
 
 ## Todo
 
-- Support revisioning
+- Support versioning.
