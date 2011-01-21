@@ -28,4 +28,5 @@ console.log(stash.list());
 ## Todo
 
 - Better formatting of exported JSON.
+- Enforce consistency - what happens when DB file is backed up during a write?
 - Support versioning.
