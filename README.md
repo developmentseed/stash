@@ -24,3 +24,7 @@ console.log(stash.list());
 // Remove sandwiches.
 stash.del('sandwiches');
 console.log(stash.list());
+
+## Todo
+
+- Support revisioning
