@@ -2,55 +2,25 @@
  * @file
  * Do not execute directly but via test.sh.
  */
-
-// Declare data.
-var sandwiches = [
-    'veggie',
-    'pulled pork',
-    'blt'
-];
-var fruit = [
-    'pear',
-    'apple',
-    'banana'
-];
+var common = require('./test_common.js');
 
 // Initialize database.
 var stash = require('../lib/stash')('test.db');
 
 // Save sandwiches, assert.
-stash.set('sandwiches', sandwiches);
-var control = stash.get('sandwiches');
-var error = false;
-for (var i; i < sandwiches.length; i++) {
-    if (sandwiches[i] != control[i]) {
-        error = true;
-    }
-}
-error ? console.error('Mismatch') : console.log('Match');
+stash.set('sandwiches', common.sandwiches);
+common.compare(common.sandwiches, stash.get('sandwiches'));
 
 // Save fruit, assert.
-stash.set('fruit', fruit);
-control = stash.get('fruit');
-error = false;
-for (var i; i < fruit.length; i++) {
-    if (fruit[i] != control[i]) {
-        error = true;
-    }
-}
-error ? console.error('Mismatch') : console.log('Match');
+stash.set('fruit', common.fruit);
+common.compare(common.fruit, stash.get('fruit'));
 
 // Assert list of all entries.
-control = stash.list();
-error = false;
-for (var i; i < fruit.length; i++) {
-    if (fruit[i] != control.fruit[i]) {
-        error = true;
-    }
-}
-error ? console.error('Mismatch') : console.log('Match');
+var docs = stash.list();
+common.compare(common.sandwiches, docs.sandwiches);
+common.compare(common.fruit, docs.fruit);
 
 // Remove sandwiches, assert, set them again as snacks.
 stash.rm('sandwiches');
-stash.get('sandwiches') == undefined ? console.log('Match') : console.error('Mismatch');
-stash.set('snacks', sandwiches);
+common.compare(undefined, stash.get('sandwiches'));
+stash.set('snacks', common.sandwiches);
