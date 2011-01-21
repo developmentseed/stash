@@ -27,4 +27,5 @@ console.log(stash.list());
 
 ## Todo
 
+- Better formatting of exported JSON.
 - Support versioning.
