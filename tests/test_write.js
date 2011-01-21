@@ -50,6 +50,7 @@ for (var i; i < fruit.length; i++) {
 }
 error ? console.error('Mismatch') : console.log('Match');
 
-// Remove sandwiches.
+// Remove sandwiches, assert, set them again as snacks.
 stash.rm('sandwiches');
 stash.get('sandwiches') == undefined ? console.log('Match') : console.error('Mismatch');
+stash.set('snacks', sandwiches);
