@@ -27,5 +27,7 @@ console.log(stash.list());
 
 ## Todo
 
+- [Make non-blocking](https://github.com/developmentseed/stash/issues#issue/1).
+- Automatically reload file when it's changed (multi process...)
 - Enforce consistency - what happens when DB file is backed up during a write?
 - Support versioning.
