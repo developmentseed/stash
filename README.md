@@ -14,20 +14,22 @@ allows for managing data in a VCS such as Git.
 var stash = require('stash')('data/food.db');
 
 // Save sandwiches, retrieve.
-stash.set('sandwiches', ['veggie', 'pulled pork', 'blt']);
-console.log(stash.get('sandwiches'));
+stash.set('sandwiches', ['veggie', 'pulled pork', 'blt'], function() {
+    console.log(stash.get('sandwiches'));
+});
 
 // Save fruits, list all key / value pairs.
-stash.set('fruits', ['pear', 'apple', 'banana']);
-console.log(stash.list());
+stash.set('fruits', ['pear', 'apple', 'banana'], function() {
+    console.log(stash.list());
+});
 
 // Remove sandwiches.
-stash.del('sandwiches');
-console.log(stash.list());
+stash.del('sandwiches', function() {
+    console.log(stash.list());
+});
 
 ## Todo
 
-- [Make non-blocking](https://github.com/developmentseed/stash/issues#issue/1).
 - Automatically reload file when it's changed (multi process...)
 - Enforce consistency - what happens when DB file is backed up during a write?
 - Support versioning.
