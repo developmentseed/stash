@@ -14,7 +14,7 @@ var Stash = function(path) {
  * Saves an existing key.
  */
 Stash.prototype.set = function(key, val, callback) {
-    this._docs[this._key(key)] = val;
+    this._docs[this.key(key)] = val;
     this._flush(callback);
 };
 
@@ -22,7 +22,7 @@ Stash.prototype.set = function(key, val, callback) {
  * Retrieve document at given key.
  */
 Stash.prototype.get = function(key) {
-    return this._docs[this._key(key)];
+    return this._docs[this.key(key)];
 };
 
 /**
@@ -36,7 +36,7 @@ Stash.prototype.list = function() {
  * Remove a document.
  */
 Stash.prototype.rm = function(key, callback) {
-    delete this._docs[this._key(key)];
+    delete this._docs[this.key(key)];
     this._flush(callback);
 };
 
@@ -44,7 +44,7 @@ Stash.prototype.rm = function(key, callback) {
  * Sanitize and prettify key for filesystem. Replaces filesystem-unsafe
  * characters with '.' and removes cruft from the front of the key.
  */
-Stash.prototype._key = function(key) {
+Stash.prototype.key = function(key) {
     return key.replace(/^\W/g, '').replace(/\W/g, '.');
 };
 
