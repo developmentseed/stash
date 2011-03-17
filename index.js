@@ -1,1 +1,1 @@
-module.exports = require('./lib/stash');
+module.exports = require('./stash');
