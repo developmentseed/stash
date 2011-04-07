@@ -47,10 +47,15 @@ Step(
     },
     // Teardown.
     function(e) {
+        if (e) throw e;
         try { fs.unlinkSync(__dirname + '/content/fruit.json'); } catch(e) {};
         try { fs.unlinkSync(__dirname + '/content/snacks.json'); } catch(e) {};
         try { fs.unlinkSync(__dirname + '/content/sandwiches.json'); } catch(e) {};
         try { fs.rmdirSync(__dirname + '/content'); } catch(e) {};
+        this();
+    },
+    function(e) {
+        if (e) throw e;
+        console.log('ok');
     }
 );
-

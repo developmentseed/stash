@@ -1,6 +1,5 @@
 var fs = require('fs'),
     path = require('path'),
-    sys = require('sys'),
     EventEmitter = require('events').EventEmitter,
     stashes = {};
 
