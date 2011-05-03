@@ -1,7 +1,8 @@
+global.__stashes__ || (global.__stashes__ = {});
 var fs = require('fs'),
     path = require('path'),
     EventEmitter = require('events').EventEmitter,
-    stashes = {};
+    stashes = global.__stashes__;
 
 var Stash = function(path) {
     this._docs = {};
@@ -107,4 +108,3 @@ module.exports = function(path) {
     !stashes[path] && (stashes[path] = new Stash(path));
     return stashes[path];
 };
-

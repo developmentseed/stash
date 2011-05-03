@@ -1,6 +1,6 @@
 {
     "name": "stash",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "author": "Young Hahn",
     "licenses": [{ "type": "BSD" }],
     "main": "./stash"
