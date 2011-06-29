@@ -99,7 +99,11 @@ Stash.prototype._load = function() {
     for (var i = 0; i < files.length; i++) {
         var key = files[i].replace(/.json$/, ''),
             data = fs.readFileSync(path.join(this._path, files[i]), 'utf8');
-        this._docs[key] = JSON.parse(data);
+        try {
+            this._docs[key] = JSON.parse(data);
+        } catch (e) {
+            console.error('Could not load %s %s', key, e);
+        }
     }
 };
 
